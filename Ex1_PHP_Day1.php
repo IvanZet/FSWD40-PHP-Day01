@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="Ex1_stylesheet.css">
 </head>
 <body>
 	<!--Exercise 1
@@ -11,8 +12,10 @@
 	<?php
 	$myName = 'Ivan';
 	?>
-
-	<h1><?php echo $myName ?></h1>
-
+	<div class="myName">
+		<h1><?php echo $myName ?></h1>
+	<div>
+		
+	</div>
 </body>
 </html>

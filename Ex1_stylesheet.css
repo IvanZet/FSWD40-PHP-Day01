@@ -1,0 +1,17 @@
+body {
+	width: 100%;
+}
+
+.myName {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid black;
+}
+
+h1 {
+	/*width: 50%;
+	text-align: center;
+	vertical-align: center;*/
+}
