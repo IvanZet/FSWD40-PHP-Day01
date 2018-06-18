@@ -29,6 +29,23 @@
         foreach($namesb as $index => $value){
             echo $index." ".$value.".<br>";
         }
+        ?>
+        <h3>second Part Multidimensional Arry</h3 >
+        <?php 
+        $heros = array(
+    
+            "mickey" => array("name" => "Mickey Maus", "age" => 75, "partner" => "Pluto"),
+            "donald" => array("name" => "Donald Duck", "age" => 68, "partner" => "Daisy"),
+            "chip" => array("name" => "Chip", "age" => 50, "partner" => "Dale"),
+        );
+        foreach($heros as $hero => $title){
+            echo $hero;
+            echo "<br>";
+            foreach($title as $key => $value){
+                echo $key.": ".$value."<br>";
+            }
+            echo "<br><hr>";
+        }
     ?>
 
 </body>
