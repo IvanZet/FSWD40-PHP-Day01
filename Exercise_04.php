@@ -8,9 +8,14 @@
 </head>
 <body>
     <?php 
-    
+        $name = "Ivan & Denis";
+        for($i =0; $i < 50; $i++){
+            echo $name;
+            echo "<br>";
+            
+        }
+
     ?>
-    <h1><?php echo $msg ?></h1>
 
 </body>
 </html>
