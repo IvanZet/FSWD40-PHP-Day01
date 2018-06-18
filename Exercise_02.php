@@ -11,11 +11,10 @@
     $msg;
     $targetDay = "Mon";
     $actualDay = date("D");
-    if($actualDay == $targetDay){
-        $msg = "Happy Monday";
-    } else{
-        $msg = "Have a nice day!";
-    }
+    if($actualDay == $targetDay)
+    $msg = "Happy Monday";
+     else 
+     $msg = "Have a nice day!";
 
     ?>
     <h1><?php echo $msg ?></h1>
