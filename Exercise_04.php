@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>for loop</h1>
     <?php 
         $name = "Ivan & Denis";
         for($i =0; $i < 50; $i++){
@@ -14,6 +15,25 @@
             echo "<br>";
             
         }
+        ?>
+        <hr>
+        <h1>while loop</h1>
+        <?php
+        $e = 0;
+        while($e < 40){
+            echo $name;
+            $e ++;
+        }
+        ?>
+        <hr>
+        <h1> do while loop</h1>
+        <?php
+        $f = 0;
+        do {
+            echo $name;
+            $f ++;
+        } while($f < 40);
+        
 
     ?>
 
