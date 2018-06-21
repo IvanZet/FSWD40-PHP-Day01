@@ -1,0 +1,44 @@
+@import 'media'
+@import 'space'
+.wrapper
+    display: flex
+    justify-content: space-around
+    flex-wrap: wrap
+    // background-color: blue
+    .item
+        width: 100%
+        background-color: #EEE
+        border: 1px solid black
+        margin: 15px
+        padding: $gpad
+        position: relative
+        // display: flex 
+        // align-content: flex-start
+        div[class^="item-"]
+            border: 1px solid
+            width: 35%
+            height: 45%
+            float: left
+            
+        .img-container
+            height: 100%
+            padding: 0px !important
+        .img-container img
+            max-width: 100%
+            max-height: 100% 
+        .item-header
+            height: 50%
+        .item-header, .item-header-subtitle
+            padding: 0px $gpad
+        .item-header-subtitle
+            height: 50%
+            display: inline
+        .item-header-subtitle p
+            display: inline  
+        
+        
+            
+        
+                
+            
+        

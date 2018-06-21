@@ -1,61 +1,56 @@
 <?php 
 	require "header.php";
-	include("data.php");
+	include("db.php");
+
 ?>
-	
-	
-	<div class="container">
-		<div class="row">
-		<?php
-		foreach ($fleet as $car => $features) { ?>
-				<div class="card float-left center-block p-4 col-sm-12 col-md-6" style="width: 18rem;">
-			  <!--<img class="card-img-top" src=".../100px180/" alt="Card image cap">-->
-			  <img class="card-img-top"src="<?php echo $features['img'] ?>">
-				  <div class="card-body">
-				    <h5 class="card-title"><?php echo $car ?></h5>
-				    <ul class="list-unstyled">
-				    	<li><em>Brand: </em><?php echo $features['brand'] ?></li>
-				    	<li><em>Model: </em><?php echo $features['model'] ?></li>
-				    	<li><em>Color: </em><?php echo $features['color'] ?></li>
-				    	<li><em>Air conditioner: </em><?php echo $features['airCond'] ?></li>
-				    	<li><em>Transmission: </em><?php echo $features['trans'] ?></li>
-				    	<li><em>Seats: </em><?php echo $features['seats'] ?></li>
-				    	<li><em>Price: </em><?php echo $features['price'] ?></li>
-				    </ul>
-				  </div>
-				</div>
-				<?php
-		}
-		?>
+<link rel="stylesheet" href="css/style_fleet.css">
+		<div class="wrapper">
+    	<?php
+					// $data = 'SELECT * FROM vehicles';
+					// $result = mysqli_query($conn, $data);
+					
+					// while($row = mysqli_fetch_array($result)){
+					// 				echo "<p>".$row['brand']."</p>";
+					// 				echo "<p>".$row['model']."</p>";
+
+					// }
+					$statement = "SELECT * FROM vehicles";
+					$result = $conn->query($statement);
+				// Check data are and throw an error if there would be a mistake
+					if (!$result) {
+								$outputDisplay .= "<p>MySQL No: " . $conn->errno . "</p>";
+								$outputDisplay .= "<p>MySQL Error: " . $conn->error . "</p>";
+								$outputDisplay .= "<p>SQL Statement: " . $statement . "</p>";
+								$outputDisplay .= "<p>MySQL Affected Rows: " . $conn->affected_rows . "</p>";
+								echo "fail";
+					} 
+					$rows = $result->fetch_all(MYSQLI_ASSOC);
+					foreach($rows as $row){?>
+						<div class="item">
+							<div class="item-img-container">
+								<img src="<?= $row['img'] ?>" alt="<?= $row['model'] ?> Image">
+							</div>
+							<div class="item-header">
+								<p><?= $row['model'] ?></p>
+								<p><?= $row['brand'] ?></p>
+								
+							</div>
+							<div class="item-header-subtitle">
+								<p><?= $row['type'] ?></p>
+								<p><?= $row['airCon'] ?></p>
+								<p><?= $row['transmission'] ?></p>
+								<p><?= $row['color'] ?></p>
+								<p><?= $row['seats'] ?></p>
+								<p><?= $row['bags'] ?></p>
+							</div>
+							
+							<!-- <div class="item-header">
+								<p><?= $row['model'] ?></p>
+								<p><?= $row['brand'] ?></p>
+							</div> -->
+							
+						</div>
+					<?php }
+         ?>
 		</div>
-	</div>
-		
-
-			<!-- <div class="card float-left center-block p-4 col-sm-12 col-md-6" style="width: 18rem;">
-					  <img class="card-img-top" src="http://via.placeholder.com/350x250" alt="Card image cap">
-			  <div class="card-body">
-			    <h5 class="card-title">Card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					  	</div>
-			</div>
-			
-			<div class="card float-left center-block p-4 col-sm-12 col-md-6" style="width: 18rem;">
-					  <img class="card-img-top" src="http://via.placeholder.com/350x250" alt="Card image cap">
-			  <div class="card-body">
-			    <h5 class="card-title">Card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					  	</div>
-			</div>
-			
-			<div class="card float-left center-block p-4 col-sm-12 col-md-6" style="width: 18rem;">
-					  <img class="card-img-top" src="http://via.placeholder.com/350x250" alt="Card image cap">
-			  <div class="card-body">
-			    <h5 class="card-title">Card title</h5>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					  	</div>
-			</div>
-			 -->
-
-	</main>
 </body>
-</html>
