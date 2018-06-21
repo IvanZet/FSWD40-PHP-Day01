@@ -1,5 +1,7 @@
 @import 'media'
 @import 'space'
+@import 'prefix'
+@import 'font'
 .wrapper
     display: flex
     justify-content: space-around
@@ -7,34 +9,97 @@
     // background-color: blue
     .item
         width: 100%
+        min-width: 520px
         background-color: #EEE
-        border: 1px solid black
+        // border: 1px solid black
         margin: 15px
         padding: $gpad
         position: relative
-        // display: flex 
-        // align-content: flex-start
-        div[class^="item-"]
-            border: 1px solid
-            width: 35%
-            height: 45%
-            float: left
-            
-        .img-container
-            height: 100%
+        display: flex
+        justify-content: space-between
+        flex-direction: row
+        border-radius: $bradius
+        @include bshadow
+        div[class$="-container"]
+
+        .item-img-container  
             padding: 0px !important
-        .img-container img
-            max-width: 100%
-            max-height: 100% 
-        .item-header
-            height: 50%
-        .item-header, .item-header-subtitle
+            width: 50%
+            max-width: 600px !important
+        .item-img-container img   
+            @include img-fluid
+            border-radius: $bradius
+        .item-header-container
+            width: 20%
+        .item-header-container, .item-header-subtitle
             padding: 0px $gpad
+            margin-left: 20px
+            color: $fc-soft-dark
+            .item-header-headline-container
+                
+                margin-top: 30px
+                display: inline
+                .item-headline
+                    font-size: $item-headline-font-size
+                    font-weight: bold
+                    margin-right: 15%
+                    text-shadow: 2px 2px 1px $dark-c
+                    color: $fc-dark
+                .item-header-headline-container p
+                    display: inline
+                    width: 50%
+                    
+                p[class^='item-headline']
+                    margin-top: 30px
+                    
+                    display: inline
+                .item-headline-two
+                    color: $fc-soft-dark
+                    font-size: $item-headline-second-font-size
+                    
         .item-header-subtitle
-            height: 50%
-            display: inline
+            margin-left: 25%  
         .item-header-subtitle p
-            display: inline  
+            // display: inline  
+            font-size: $detail-font-size
+            i
+                margin-right: 10px
+                color: $fc-dark
+        .item-price-container
+            @extend %centered
+            width: 30%
+            
+            .item-price-container-inside
+                // border: 1px solid
+                padding: $gpad
+                display: block
+                margin-left: 24%
+                width: 42%
+                text-align: center
+                
+                .item-price, button
+                    font-weight: bold
+                    font-size: $item-prize-fs
+                    color: $font-black
+                    border: 1px solid $dark-c
+                    border-radius: $bradius 
+                    padding: $gpad
+                    background-color: white
+                .item-price
+                    line-height: 1.4em
+                button 
+                    width: 100%
+                    text-decoration: none
+                    display: inline-block
+                    margin: 4px 2px
+                    cursor: pointer
+                    @include button-hover
+
+                button:hover
+                    background-color: $dark-c
+                    color: white
+
+            
         
         
             

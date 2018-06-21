@@ -30,24 +30,29 @@
 							<div class="item-img-container">
 								<img src="<?= $row['img'] ?>" alt="<?= $row['model'] ?> Image">
 							</div>
-							<div class="item-header">
-								<p><?= $row['model'] ?></p>
-								<p><?= $row['brand'] ?></p>
+							<div class="item-header-container">
+								<div class="item-header-headline-container">
+									<p class="item-headline"><?= $row['model'] ?></p>
+									<p class="item-headline-two"><?= $row['brand'] ?></p>
+								</div>
 								
-							</div>
-							<div class="item-header-subtitle">
-								<p><?= $row['type'] ?></p>
-								<p><?= $row['airCon'] ?></p>
-								<p><?= $row['transmission'] ?></p>
-								<p><?= $row['color'] ?></p>
-								<p><?= $row['seats'] ?></p>
-								<p><?= $row['bags'] ?></p>
+								<div class="item-header-subtitle">
+									<p><?= $row['type'] ?></p>
+									<p><i class="fas fa-snowflake"></i><?= $row['airCon'] ?></p>
+									<p><i class="fas fa-cogs"></i><?= $row['transmittion'] ?></p>
+									
+									<p><i class="fas fa-user"></i><?= $row['seats'] ?></p>
+									<p><i class="fas fa-suitcase"></i><?= $row['bags'] ?></p>
+								</div>
 							</div>
 							
-							<!-- <div class="item-header">
-								<p><?= $row['model'] ?></p>
-								<p><?= $row['brand'] ?></p>
-							</div> -->
+							
+							<div class="item-price-container">
+								<div class="item-price-container-inside">
+									<p class="item-price"><?= $row['price'] ?>,00 €</p>
+									<button>book</button>
+								</div>
+							</div>
 							
 						</div>
 					<?php }
