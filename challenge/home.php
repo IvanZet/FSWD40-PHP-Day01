@@ -1,6 +1,6 @@
 <?php
     require 'header.php';
-    require_once 'dbconnect.php';
+    require_once 'db.php';
     ob_start();
     session_start();
     // if session is not set this will redirect to login page
@@ -16,3 +16,4 @@
     <a href="logout.php?logout">Sign Out</a>
     </body>
 <?php ob_end_flush(); ?>
+

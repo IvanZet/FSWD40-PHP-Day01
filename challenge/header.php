@@ -13,10 +13,11 @@
 		
 			<nav>
 				<ul>
-						<li><a href="index.php" title="home">Home</a></li>
+						<li><a href="home.php" title="home">Home</a></li>
 						<li><a href="fleet.php" title="fleet">Fleet</a></li>
-						<li><a href="basket.php" title="basket">Basket</a></li>
-						<li><a href="login.php" title="login">login</a></li>
+						<li><a href="register.php" title="basket">register</a></li>
+						<li><a href="index.php" title="login">login</a></li>
+						<li><a href="logout.php?logout">Sign Out</a></li>
 				</ul>
 			</nav> 
 	</header>

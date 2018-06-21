@@ -1,13 +1,14 @@
 <?php
-    require 'header.php';
+    include('header.php');
     ob_start();
     session_start(); // start a new session or continues the previous
     if( isset($_SESSION['user'])!="" ){
-    header("Location: home.php"); // redirects to home.php
+        header("Location: home.php"); // redirects to home.php
     }
-    include_once 'dbconnect.php';
+    include_once 'db.php';
     $error = false;
     if ( isset($_POST['btn-signup']) ) {
+
         // sanitize user input to prevent sql injection
         $name = trim($_POST['name']);
         $name = strip_tags($name);
@@ -55,14 +56,16 @@
             $error = true;
             $passError = "Password must have atleast 6 characters.";
         }
+
         // password hashing for security
         $password = hash('sha256', $pass);
+
         // if there's no error, continue to signup
         if( !$error ) {
         
             $query = "INSERT INTO users(userName,userEmail,userPass) VALUES('$name','$email','$password')";
             $res = mysqli_query($conn, $query);
-            
+        
             if ($res) {
                 $errTyp = "success";
                 $errMSG = "Successfully registered, you may login now";
@@ -73,42 +76,49 @@
                 $errTyp = "danger";
                 $errMSG = "Something went wrong, try again later...";
             }
+        
         }
-}
+
+
+    }
 ?>
 
    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off">
-  
-      
-            <h2>Sign Up.</h2>
-            <hr />
-           <?php
-                if ( isset($errMSG) ) {
-            ?>
-           <div class="alert alert-<?php echo $errTyp ?>">
-                        <?php echo $errMSG; ?>
-            </div>
-
-            <?php
-                }
-            ?>
-            <input type="text" name="name" class="form-control" placeholder="Enter Name" maxlength="50" value="<?php echo $name ?>" />
-            <span class="text-danger"><?php echo $nameError; ?></span>
-            <input type="email" name="email" class="form-control" placeholder="Enter Your Email" maxlength="40" value="<?php echo $email ?>" />
-            <span class="text-danger"><?php echo $emailError; ?></span>
-            <input type="password" name="pass" class="form-control" placeholder="Enter Password" maxlength="15" />
-            <span class="text-danger"><?php echo $passError; ?></span>
-      
-            <hr />
-            
-            
-            <button type="submit" class="btn btn-block btn-primary" name="btn-signup">Sign Up</button>
-            <hr />
+        <h2>Sign Up.</h2>
+        <hr />
         
-            <a href="index.php">Sign in Here...</a>
+<?php
+    if ( isset($errMSG) ) {
+  
+    ?>
+        <div class="alert alert-<?php echo $errTyp ?>">
+            <?php echo $errMSG; ?>
+        </div>
+
+<?php
+  }
+  ?>
+        <input type="text" name="name" class="form-control" placeholder="Enter Name" maxlength="50" value="<?php echo $name ?>" />
+      
+        <span class="text-danger"><?php echo $nameError; ?></span>
+
+        <input type="email" name="email" class="form-control" placeholder="Enter Your Email" maxlength="40" value="<?php echo $email ?>" />
+    
+        <span class="text-danger"><?php echo $emailError; ?></span>
+      
+         <input type="password" name="pass" class="form-control" placeholder="Enter Password" maxlength="15" />
+            
+        <span class="text-danger"><?php echo $passError; ?></span>
+
+    <hr />
+
+          
+        <button type="submit" class="btn btn-block btn-primary" name="btn-signup">Sign Up</button>
+    <hr />
+          
+        <a href="index.php">Sign in Here...</a>
 
    </form>
 </body>
 </html>
 <?php ob_end_flush(); ?>
-
