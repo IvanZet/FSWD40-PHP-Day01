@@ -1,5 +1,6 @@
 <?php 
 	require "header.php";
+	require "modal.php";
 	include("db.php");
 
 ?>
@@ -50,12 +51,28 @@
 							<div class="item-price-container">
 								<div class="item-price-container-inside">
 									<p class="item-price"><?= $row['price'] ?>,00 €</p>
-									<button>book</button>
+									
+									<button  class="open" type="button" >book</button>
 								</div>
 							</div>
 							
 						</div>
 					<?php }
          ?>
-		</div>
+			
+			<!--Creates the popup body-->
+				<div class="popup-overlay">
+			<!--Creates the popup content-->
+				<div class="popup-content">
+					<h2>Pop-Up</h2>
+					<p> This is an example pop-up that you can make using jQuery.</p>
+				<!--popup's close button-->
+					<button class="close">Close</button>    
+				</div>
+			</div>
+
+			
+
+</div>
+		<script src="js/modal.js"></script>
 </body>
